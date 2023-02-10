@@ -20,7 +20,7 @@ class Window(QDialog):
         self.draw_ellipse(painter)
         painter.end()
     def draw_ellipse(self, painter):
-        painter.setBrush(QColor(251, 255, 31))
+        painter.setBrush(QColor(randrange(255), randrange(255), randrange(255)))
         painter.drawEllipse(randrange(200), randrange(200), randrange(80), randrange(80))
 
 
