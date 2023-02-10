@@ -11,7 +11,7 @@ class Window(QDialog):
         super().__init__()
         uic.loadUi('circles.ui', self)
         #self.startButton.clicked.connect(self.draw_ellipse)
-        #a =
+        a = 'qwe'
 
 
     def paintEvent(self, event):
