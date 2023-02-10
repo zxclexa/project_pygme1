@@ -1,16 +1,28 @@
-import sys
 from random import randrange
 
-from PyQt5 import uic
 from PyQt5.QtGui import QPainter, QColor
-from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog
+from PyQt5 import QtCore, QtGui, QtWidgets
 
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(400, 300)
+        self.widget = QtWidgets.QWidget(Dialog)
+        self.widget.setGeometry(QtCore.QRect(9, 9, 381, 231))
+        self.widget.setObjectName("widget")
+        self.startButton = QtWidgets.QPushButton(Dialog)
+        self.startButton.setGeometry(QtCore.QRect(180, 250, 51, 41))
+        self.startButton.setObjectName("startButton")
 
-class Window(QDialog):
-    def __init__(self):
-        super().__init__()
-        uic.loadUi('circles.ui', self)
-        #self.startButton.clicked.connect(self.draw_ellipse)
+        #self.startButton.clicked.connect(self.paintEvent(self))
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        self.startButton.setText(_translate("Dialog", "circle"))
 
 
 
@@ -25,8 +37,11 @@ class Window(QDialog):
 
 
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    zxc = Window()
-    zxc.show()
-    sys.exit(app.exec())
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Dialog = QtWidgets.QDialog()
+    ui = Ui_Dialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
+    sys.exit(app.exec_())
